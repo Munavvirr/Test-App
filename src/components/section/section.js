@@ -8,6 +8,7 @@ const Section = () => {
     const [sectors, setSectors] = useState([]);
     const [dataAlreadyLoaded, setDataAlreadyLoaded] = useState(false);
     const [updateButtonDisabled, setUpdateButtonDisabled] = useState(true);
+    const [successMessage, setSuccessMessage] = useState('');
     const [formData, setFormData] = useState({
         name: '',
         sectorId: '',
@@ -133,6 +134,7 @@ const Section = () => {
                     // Set the flag in local storage
                     sessionStorage.setItem('hasLoadedData', 'true');
                     setDataAlreadyLoaded(true);
+                    setSuccessMessage('Successfully loaded!');
                     setUpdateButtonDisabled(false); // Enable the "Update" button
                 })
                 .catch(error => {
@@ -160,6 +162,7 @@ const Section = () => {
             .then(response => {
                 console.log('User data updated:', response.data);
                 // You might want to reload the data here or update the UI in some way
+                setSuccessMessage('Successfully updated!');
                 sessionStorage.removeItem('hasLoadedData');
             })
             .catch(error => {
@@ -192,6 +195,7 @@ const Section = () => {
         setValidated(false);
     }
     setDataAlreadyLoaded(false);
+    setSuccessMessage('Successfully submitted!');
     handleReset();
 };
 
@@ -235,6 +239,9 @@ const Section = () => {
                     <div className='col-xl-4 col-sm-12 col-md-12 col-lg-4 mt-2'>
                         <button className="btn btnColor btn-block" type="button"  disabled={updateButtonDisabled} onClick={updateData}>Update</button>
                     </div>
+                </div>
+                <div className='pt-4'>
+                {successMessage && <div className="success-message">{successMessage}</div>}
                 </div>
             </form>
         </div>
