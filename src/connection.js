@@ -3,7 +3,7 @@ const server = express();
 const bodyParser = require("body-parser");
 const mysql = require('mysql2/promise');
 const cors = require('cors');
-require('dotenv').config();
+
 
 // Connection to the MySQL database
 const db = mysql.createPool({
@@ -19,7 +19,6 @@ server.listen(9002, function check(error){
 });
 server.use(cors({ origin: 'http://localhost:3000' }));
 server.use(bodyParser.json());
-
 
 // API endpoint to get list of sectors
 server.get('/api/sectors', async (req, res) => {
