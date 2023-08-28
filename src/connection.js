@@ -7,13 +7,13 @@ const cors = require('cors');
 
 // Connection to the MySQL database
 const db = mysql.createPool({
-    host: "containers-us-west-139.railway.app",
+    host: "srv873.hstgr.io",
     user: "u506548348_root",
-    password: "le4oWcTo4z2lEa1jzpST",
-    database: "railway"
+    password: "Root1234",
+    database: "u506548348_testapp"
   });
-
-server.listen(5824, function check(error){
+  
+server.listen(9002, function check(error){
   if (error) console.log("Error!!!")
   else console.log("Started!!!")
 });
