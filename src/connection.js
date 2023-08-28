@@ -3,14 +3,15 @@ const server = express();
 const bodyParser = require("body-parser");
 const mysql = require('mysql2/promise');
 const cors = require('cors');
+require('dotenv').config();
 
 // Connection to the MySQL database
 const db = mysql.createPool({
-  host: 'srv873.hstgr.io',
-  user: 'u506548348_root',
-  password: 'root1234',
-  database: 'u506548348_testapp'
-});
+    host: "srv873.hstgr.io",
+    user: "u506548348_root",
+    password: "Root1234",
+    database: "u506548348_testapp"
+  });
 
 server.listen(9002, function check(error){
   if (error) console.log("Error!!!")
