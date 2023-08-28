@@ -6,11 +6,10 @@ const cors = require('cors');
 
 // Connection to the MySQL database
 const db = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'test app',
-  port: 8111
+  host: 'srv873.hstgr.io',
+  user: 'u506548348_root',
+  password: 'root1234',
+  database: 'u506548348_testapp'
 });
 
 server.listen(9002, function check(error){
