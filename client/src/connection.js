@@ -31,7 +31,6 @@ server.get('/api/sectors', async (req, res) => {
     }
 });
 
-
   //insert details into database and generate session token
   server.post("/details/add", (req, res) => {
       const userDetails = {
