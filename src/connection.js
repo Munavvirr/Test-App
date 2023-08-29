@@ -17,7 +17,7 @@ server.listen(9002, function check(error){
   if (error) console.log("Error!!!")
   else console.log("Started!!!")
 });
-server.use(cors({ origin: 'http://localhost:3000' }));
+server.use(cors({ origin: 'http://munnapp.me-vulcann.com/' }));
 server.use(bodyParser.json());
 
 // API endpoint to get list of sectors
