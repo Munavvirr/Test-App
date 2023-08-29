@@ -17,7 +17,7 @@ server.listen(9002, function check(error){
   if (error) console.log("Error!!!")
   else console.log("Started!!!")
 });
-server.use(cors({ origin: 'test-app-2-omega.vercel.app' }));
+server.use(cors({ origin: 'test-app-rho-gilt.vercel.app' }));
 server.use(bodyParser.json());
 
 // API endpoint to get list of sectors
