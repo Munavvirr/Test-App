@@ -24,7 +24,7 @@ const Section = () => {
     const formRef = useRef(null);
     
     useEffect(() => {
-        axios.get('http://test-app-rho-gilt.vercel.app/api/sectors')
+        axios.get('http://localhost:9002/api/sectors')
             .then(response => {
                 setSectors(response.data);
             })
@@ -117,7 +117,7 @@ const Section = () => {
         const hasLoadedData = sessionStorage.getItem('hasLoadedData'); // Use sessionStorage instead of localStorage
 
         if (!hasLoadedData) {
-            axios.get('https://test-app-rho-gilt.vercel.app/api/latest-user-data')
+            axios.get('https://localhost:9002/api/latest-user-data')
                 .then(response => {
                     console.log("Latest user data loaded:", response.data);
                     const userData = response.data;
@@ -156,7 +156,7 @@ const Section = () => {
         console.log(formPayload.userId)
         console.log('formData before update call:', formData);
          // Extract user ID from formData
-        axios.put(`https://test-app-rho-gilt.vercel.app/api/update-user-data/${formPayload.userId}`, formPayload, {headers: {
+        axios.put(`https://localhost:9002/api/update-user-data/${formPayload.userId}`, formPayload, {headers: {
             'Content-Type': 'application/json'
           }})
             .then(response => {
@@ -183,7 +183,7 @@ const Section = () => {
             agree_to_terms: formData.agreeToTerms
         };
             // If no user data was loaded, perform an insert operation
-            axios.post('https://test-app-rho-gilt.vercel.app/details/add', formPayload)
+            axios.post('https://localhost:9002/details/add', formPayload)
                 .then(response => {
                     console.log('Form data submitted:', response.data);
                     sessionStorage.setItem('hasLoadedData', 'true');
